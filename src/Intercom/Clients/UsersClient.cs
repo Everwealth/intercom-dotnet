@@ -410,14 +410,14 @@ namespace Intercom.Clients
 
             if (user.companies != null && user.companies.Any()) 
             {
-                companies = user.companies.Select(c => new Company({		
+                companies = user.companies.Select(c => new Company {		
                     remote_created_at = c.remote_created_at,		
                     company_id = c.company_id,		
                     name = c.name,		
                     monthly_spend = c.monthly_spend,		
                     custom_attributes = c.custom_attributes,		
                     //plan = c.plan		
-                })).ToList();
+                }).ToList();
             }
 
             var body = new
@@ -427,7 +427,7 @@ namespace Intercom.Clients
                 email = user.email,
                 phone = user.phone,
                 name = user.name,
-                companies = companies,
+                companies = companies.ToArray(),
                 avatar = user.avatar,
                 signed_up_at = user.signed_up_at,
                 last_seen_ip = user.last_seen_ip,
