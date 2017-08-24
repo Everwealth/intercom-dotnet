@@ -9,6 +9,7 @@ namespace Intercom.Data
 		public bool? remove { set; get; }
 		public string name { get; set; }
 		public string company_id { get; set; }
+		public Plan plan { get; set; }
 		public long? remote_created_at { get; set; }
 		public long? created_at { get; set; }
 		public long? updated_at { get; set; }
