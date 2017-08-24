@@ -406,7 +406,7 @@ namespace Intercom.Clients
 
         private String Transform(User user)
         {
-            List<Company> companies = null;
+            List<Company> companies = new List<Company>();
 
             if (user.companies != null && user.companies.Any()) 
             {
