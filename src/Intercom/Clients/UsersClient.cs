@@ -408,8 +408,17 @@ namespace Intercom.Clients
         {
             List<Company> companies = null;
 
-            if (user.companies != null && user.companies.Any())
-                companies = user.companies;
+            if (user.companies != null && user.companies.Any()) 
+            {
+                companies = user.companies.Select(c => new Company({		
+                    remote_created_at = c.remote_created_at,		
+                    company_id = c.company_id,		
+                    name = c.name,		
+                    monthly_spend = c.monthly_spend,		
+                    custom_attributes = c.custom_attributes,		
+                    //plan = c.plan		
+                })).ToList();
+            }
 
             var body = new
             {
