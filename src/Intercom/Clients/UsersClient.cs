@@ -406,7 +406,7 @@ namespace Intercom.Clients
 
         private String Transform(User user)
         {
-            List<Company> companies = new List<Company>();
+            List<Company> companies = null;
 
             if (user.companies != null && user.companies.Any()) 
             {
@@ -427,7 +427,7 @@ namespace Intercom.Clients
                 email = user.email,
                 phone = user.phone,
                 name = user.name,
-                companies = companies.ToArray(),
+                companies = companies != null ? companies.ToArray() : null,
                 avatar = user.avatar,
                 signed_up_at = user.signed_up_at,
                 last_seen_ip = user.last_seen_ip,
