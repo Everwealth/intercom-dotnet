@@ -416,8 +416,7 @@ namespace Intercom.Clients
                     name = c.name,
                     monthly_spend = c.monthly_spend,		
                     custom_attributes = c.custom_attributes,
-                    remove = c.remove.HasValue && c.remove.Value == true ? true : null,
-                    plan = c.plan != null && !string.IsNullOrEmpty(c.plan.name) ? c.plan.name : null
+                    remove = c.remove,
                 }).ToList();
             }
 
