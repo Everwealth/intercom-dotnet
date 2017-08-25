@@ -415,9 +415,10 @@ namespace Intercom.Clients
                     remote_created_at = c.remote_created_at,
                     company_id = c.company_id,
                     name = c.name,
+                    remove = c.remove.HasValue && c.remove.Value == true ? true : null,
                     monthly_spend = c.monthly_spend,
                     custom_attributes = c.custom_attributes,
-                    plan = c.plan
+                    plan = c.plan != null && !string.IsNullOrEmpty(c.plan.name) ? c.plan.name : null 
                 }).ToList();
             }
 
