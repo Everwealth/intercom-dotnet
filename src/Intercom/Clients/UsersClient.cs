@@ -411,12 +411,15 @@ namespace Intercom.Clients
             if (user.companies != null && user.companies.Any()) 
             {
                 companies = user.companies.Select(c => new Company {		
-                    remote_created_at = c.remote_created_at,		
-                    company_id = c.company_id,		
-                    name = c.name,		
+                    remote_created_at = c.remote_created_at,
+                    company_id = c.company_id,
+                    name = c.name,
                     monthly_spend = c.monthly_spend,		
-                    custom_attributes = c.custom_attributes,		
-                    //plan = c.plan		
+                    custom_attributes = c.custom_attributes,
+                    remove = c.remove.HasValue && c.remove.Value == true ? true : null,
+                    monthly_spend = c.monthly_spend,
+                    custom_attributes = c.custom_attributes,
+                    plan = c.plan != null && !string.IsNullOrEmpty(c.plan.name) ? c.plan.name : null
                 }).ToList();
             }
 
